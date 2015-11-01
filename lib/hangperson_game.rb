@@ -76,7 +76,7 @@ class HangpersonGame
 
   def check_win_or_lose
 
-     if !@word_with_guesses.include?('-')
+     if @word_with_guesses.length != 0 && !@word_with_guesses.include?('-')
        :win
      elsif @wrong_guesses.length >= 7
        :lose
