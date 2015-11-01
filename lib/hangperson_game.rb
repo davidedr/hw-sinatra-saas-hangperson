@@ -36,13 +36,13 @@ class HangpersonGame
     puts "BEFORE @word: #{@word}, letter: #{letter}, found: NA, @structure: #{@structure}, @guesses: #{@guesses}, @wrong_guesses: #{@wrong_guesses}"
 
     if @guesses.downcase.include?(letter.downcase)
-      puts "letter: #{letter}, @guesses: #{@guesses} @wrong_guesses: #{@wrong_guesses} return"
-      return true
+      puts "A. letter: #{letter}, @guesses: #{@guesses} @wrong_guesses: #{@wrong_guesses} return"
+      return false
     end
 
     if @wrong_guesses.downcase.include?(letter.downcase)
-      puts "letter: #{letter}, @guesses: #{@guesses}, @wrong_guesses: #{@wrong_guesses} return"
-      return true
+      puts "B. letter: #{letter}, @guesses: #{@guesses}, @wrong_guesses: #{@wrong_guesses} return"
+      return false
     end
 
     if @word_with_guesses == ''
@@ -77,13 +77,10 @@ class HangpersonGame
   def check_win_or_lose
 
      if !@word_with_guesses.include?('-')
-       puts "win"
-       return :win
+       :win
      elsif @wrong_guesses.length >= 7
-       puts "lose"
        :lose
      else
-       puts "play"
        :play
      end
   end
